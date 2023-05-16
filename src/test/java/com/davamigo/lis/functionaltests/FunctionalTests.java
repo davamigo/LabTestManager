@@ -1,5 +1,6 @@
-package com.davamigo.lis.testmanager.functional;
+package com.davamigo.lis.functionaltests;
 
+import com.davamigo.lis.testmanager.application.usecases.PerformOrderTestsUseCase;
 import com.davamigo.lis.testmanager.domain.dto.testresult.*;
 import com.davamigo.lis.testmanager.domain.entity.clinicaltest.ClinicalTest;
 import com.davamigo.lis.testmanager.domain.entity.clinicaltest.GlucoseTest;
@@ -14,7 +15,6 @@ import com.davamigo.lis.testmanager.domain.entity.sampletype.BloodSampleType;
 import com.davamigo.lis.testmanager.domain.entity.sampletype.SampleType;
 import com.davamigo.lis.testmanager.domain.entity.sampletype.SerumSampleType;
 import com.davamigo.lis.testmanager.domain.entity.sampletype.UrineSampleType;
-import com.davamigo.lis.testmanager.domain.service.testmanager.TestManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ import java.util.UUID;
 public class FunctionalTests {
 
     @Autowired
-    private TestManager tm;
+    private PerformOrderTestsUseCase uc;
 
     @Test
     public void testOrderWithBloodSampleAndOneGlucoseTest() {
@@ -50,7 +50,7 @@ public class FunctionalTests {
         final UUID orderUuid = UUID.randomUUID();
         final Order order = new Order(orderUuid, bloodSample, tests);
 
-        final List<TestResult> results = new ArrayList<>(tm.performOrder(order));
+        final List<TestResult> results = new ArrayList<>(uc.performOrder(order));
         Assertions.assertEquals(1, results.size());
 
         final TestResult result = results.get(0);
@@ -75,7 +75,7 @@ public class FunctionalTests {
         final ClinicalTest test = new GlucoseTest();
         final Order order = new Order(UUID.randomUUID(), urineSample, List.of(test));
 
-        final List<TestResult> results = new ArrayList<>(tm.performOrder(order));
+        final List<TestResult> results = new ArrayList<>(uc.performOrder(order));
         Assertions.assertEquals(1, results.size());
 
         final TestResult result = results.get(0);
@@ -98,7 +98,7 @@ public class FunctionalTests {
         final ClinicalTest test = new PotassiumTest();
         final Order order = new Order(UUID.randomUUID(), bloodSample, List.of(test));
 
-        final List<TestResult> results = new ArrayList<>(tm.performOrder(order));
+        final List<TestResult> results = new ArrayList<>(uc.performOrder(order));
         Assertions.assertEquals(1, results.size());
 
         final TestResult result = results.get(0);
@@ -121,7 +121,7 @@ public class FunctionalTests {
         final ClinicalTest test = new PotassiumTest();
         final Order order = new Order(UUID.randomUUID(), bloodSample, List.of(test));
 
-        final List<TestResult> results = new ArrayList<>(tm.performOrder(order));
+        final List<TestResult> results = new ArrayList<>(uc.performOrder(order));
         Assertions.assertEquals(1, results.size());
 
         final TestResult result = results.get(0);
@@ -144,7 +144,7 @@ public class FunctionalTests {
         final ClinicalTest test3 = new GlucoseTest();
         final Order order = new Order(UUID.randomUUID(), bloodSample, List.of(test1, test2, test3));
 
-        final List<TestResult> results = new ArrayList<>(tm.performOrder(order));
+        final List<TestResult> results = new ArrayList<>(uc.performOrder(order));
         Assertions.assertEquals(3, results.size());
         results.forEach(testResult -> System.out.println(testResult.toString()));
     }

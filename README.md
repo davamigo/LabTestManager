@@ -14,7 +14,7 @@ Proof of concept of a Lab Test Manager
 
 ## Functional test performed
 
-Find the functional tests in: [FunctionalTests,java](./src/test/java/com/davamigo/lis/testmanager/functional/FunctionalTests.java)
+Find the functional tests in: [FunctionalTests,java](./src/test/java/com/davamigo/lis/functionaltests/Functionaltests.java)
 
 - `testOrderWithBloodSampleAndOneGlucoseTest`
     - Performed glucose test (biochemistry) on blood sample in container labeled 7559895548022. Result: 97 mg/100mL.

@@ -1,4 +1,4 @@
-package com.davamigo.lis.testmanager;
+package com.davamigo.lis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
