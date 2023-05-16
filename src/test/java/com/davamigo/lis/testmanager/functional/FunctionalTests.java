@@ -1,23 +1,30 @@
 package com.davamigo.lis.testmanager.functional;
 
-import com.davamigo.lis.testmanager.dto.testresult.*;
-import com.davamigo.lis.testmanager.entity.clinicaltest.*;
-import com.davamigo.lis.testmanager.entity.container.Container;
-import com.davamigo.lis.testmanager.entity.container.TubeContainer;
-import com.davamigo.lis.testmanager.entity.order.Order;
-import com.davamigo.lis.testmanager.entity.patient.Patient;
-import com.davamigo.lis.testmanager.entity.sample.Sample;
-import com.davamigo.lis.testmanager.entity.sampletype.BloodSampleType;
-import com.davamigo.lis.testmanager.entity.sampletype.SampleType;
-import com.davamigo.lis.testmanager.entity.sampletype.SerumSampleType;
-import com.davamigo.lis.testmanager.entity.sampletype.UrineSampleType;
-import com.davamigo.lis.testmanager.service.testmanager.TestManager;
+import com.davamigo.lis.testmanager.domain.dto.testresult.*;
+import com.davamigo.lis.testmanager.domain.entity.clinicaltest.ClinicalTest;
+import com.davamigo.lis.testmanager.domain.entity.clinicaltest.GlucoseTest;
+import com.davamigo.lis.testmanager.domain.entity.clinicaltest.PotassiumTest;
+import com.davamigo.lis.testmanager.domain.entity.clinicaltest.SodiumTest;
+import com.davamigo.lis.testmanager.domain.entity.container.Container;
+import com.davamigo.lis.testmanager.domain.entity.container.TubeContainer;
+import com.davamigo.lis.testmanager.domain.entity.order.Order;
+import com.davamigo.lis.testmanager.domain.entity.patient.Patient;
+import com.davamigo.lis.testmanager.domain.entity.sample.Sample;
+import com.davamigo.lis.testmanager.domain.entity.sampletype.BloodSampleType;
+import com.davamigo.lis.testmanager.domain.entity.sampletype.SampleType;
+import com.davamigo.lis.testmanager.domain.entity.sampletype.SerumSampleType;
+import com.davamigo.lis.testmanager.domain.entity.sampletype.UrineSampleType;
+import com.davamigo.lis.testmanager.domain.service.testmanager.TestManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 /**
  * @author david.amigo
